@@ -1,0 +1,8 @@
+wake her up
+"C:\Users\GIAN\AppData\Local\Programs\Ollama\ollama.exe" serve
+cd /d C:\Yara
+"C:\Users\GIAN\AppData\Local\Programs\Python\Python311\python.exe" "C:\Yara\yara.py"
+
+make her sleep
+"C:\Users\GIAN\AppData\Local\Programs\Ollama\ollama.exe" stop dolphin3
+ctrl + c on server

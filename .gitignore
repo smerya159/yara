@@ -1,0 +1,4 @@
+# Personal memory and private conversation history
+memory.json
+conversation_history.json
+*.tmp

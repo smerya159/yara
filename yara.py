@@ -18,7 +18,7 @@ API_URL = "http://localhost:11434/api/chat"
 MODEL = "dolphin3"
 
 # Keep the latest 10 exchanges (20 messages)
-MAX_HISTORY_MESSAGES = 20
+MAX_HISTORY_MESSAGES = 10
 
 
 def load_text(path):
@@ -181,13 +181,21 @@ while True:
     })
 
     payload = {
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT},
-            *messages
-        ],
-        "stream": False
+    "model": MODEL,
+    "messages": [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        *messages
+    ],
+    "stream": False,
+    "options": {
+        "num_ctx": 8192,
+        "temperature": 0.8,
+        "top_p": 0.9,
+        "top_k": 40,
+        "repeat_penalty": 1.1,
+        "num_predict": 256
     }
+}
 
     request = urllib.request.Request(
         API_URL,
